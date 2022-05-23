@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <app-nav></app-nav>
+    </div>
+
+    <div class="col container mt-auto">
+      <header class="row mt-6">Dashboard</header>
+
+      <div class="row mt-6 p-3">
+        <!-- testar classe -->
+        <!-- col-2 text-center border rounded-3 me-3 bg-white pt-2 -->
+        <div
+          *ngFor="let item of cards"
+          class="col col-3 d-flex flex-wrap card text-center"
+          #{{item}}
+        >
+          <div class="card-body">
+            <h5 class="card-title">{{ item.nome }}</h5>
+            <p class="card-text">{{ item.valor }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <button (click)="montarDashboard()">clique</button>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex
+          voluptatibus, possimus voluptates molestias nesciunt nulla est eos
+          cumque quisquam architecto rerum quam quis quae blanditiis
+          reprehenderit culpa iusto doloremque sapiente?
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

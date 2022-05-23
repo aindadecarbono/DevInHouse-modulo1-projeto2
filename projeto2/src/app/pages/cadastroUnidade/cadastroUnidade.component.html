@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <app-nav></app-nav>
+    </div>
+
+    <div class="col container mt-5">
+      <header class="row mt-6">cadastro de unidade</header>
+      <p>formulário (deletar depois)</p>
+
+      <form
+        class=""
+        autocomplete="off"
+        #cadastro="ngForm"
+        (ngSubmit)="postarNovaUnidade(); cadastro.reset()"
+      >
+        <div class="form-group container-fluid">
+          <label for="">Apelido</label>
+          <input
+            required
+            name="apelido"
+            class="form-control"
+            type="text"
+            placeholder="apelido"
+            [(ngModel)]="apelido"
+          />
+          <label for="">Local</label>
+          <input
+            required
+            name="local"
+            class="form-control mt-1"
+            type="text"
+            placeholder="local"
+            [(ngModel)]="local"
+          />
+          <label for="">Marca</label>
+          <input
+            required
+            name="marca"
+            class="form-control mt-1"
+            type="text"
+            placeholder="marca"
+            [(ngModel)]="marca"
+          />
+          <label for="">Modelo</label>
+          <input
+            required
+            name="modelo"
+            class="form-control mt-1"
+            type="text"
+            placeholder="modelo"
+            [(ngModel)]="modelo"
+          />
+          <label for="">Ativo</label>
+          <input [(ngModel)]="ativo" type="checkbox" name="ativo" id="" />
+          <br />
+
+          <button [disabled]="!cadastro.valid" class="btn my-2" type="submit">
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

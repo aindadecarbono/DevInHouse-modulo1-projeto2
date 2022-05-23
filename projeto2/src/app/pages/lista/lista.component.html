@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <app-nav></app-nav>
+    </div>
+
+    <div class="col container mt-auto">
+      <header class="row mt-6">Unidades</header>
+      <p>lista</p>
+
+      <div *ngIf="listaVazia; else lista">
+        <p>Lista vazia</p>
+      </div>
+
+      <ng-template #lista>
+        <table class="">
+          <tr>
+            <th *ngFor="let item of headers">{{ item }}</th>
+          </tr>
+          <tr *ngFor="let item of unidades">
+            <td>{{ item.id }}</td>
+            <td>{{ item.apelido }}</td>
+            <td>{{ item.local }}</td>
+            <td>{{ item.marca }}</td>
+            <td>{{ item.modelo }}</td>
+            <td><button>Editar</button></td>
+            <td><button>Remover</button></td>
+          </tr>
+        </table>
+      </ng-template>
+
+      <button routerLinkActive="active" routerLink="/cadastrounidade">
+        Nova unidade
+      </button>
+    </div>
+  </div>
+</div>
