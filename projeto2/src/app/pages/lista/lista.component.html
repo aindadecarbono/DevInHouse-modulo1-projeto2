@@ -23,8 +23,8 @@
             <td>{{ item.local }}</td>
             <td>{{ item.marca }}</td>
             <td>{{ item.modelo }}</td>
-            <td><button>Editar</button></td>
-            <td><button>Remover</button></td>
+            <td><button (click)="editarItem(item.id)">Editar</button></td>
+            <td><button (click)="removerItem(item.id)">Remover</button></td>
           </tr>
         </table>
       </ng-template>

@@ -1,59 +1,11 @@
 {
   "unidades": [
     {
-      "id": 1,
-      "apelido": "apelido tal",
-      "local": "local tal",
-      "marca": "marca tal",
-      "modelo": "modelo tal",
-      "ativo": true
-    },
-    {
-      "id": 2,
-      "apelido": "apelido tal 2",
-      "local": "local tal 2",
-      "marca": "marca tal 2",
-      "modelo": "modelo tal 2",
-      "ativo": true
-    },
-    {
-      "id": 3,
-      "apelido": "apelido tal 3",
-      "local": "local tal 3",
-      "marca": "marca tal 3",
-      "modelo": "modelo tal 3",
-      "ativo": true
-    },
-    {
-      "id": 6934,
-      "apelido": "a",
-      "local": "b",
-      "marca": "c",
-      "modelo": "d",
-      "ativo": false
-    },
-    {
-      "id": 7918,
-      "apelido": "b",
-      "local": "g",
-      "marca": "a",
-      "modelo": "f",
-      "ativo": true
-    },
-    {
-      "id": 3805,
-      "apelido": "g",
-      "local": "g",
-      "marca": "g",
-      "modelo": "g",
-      "ativo": false
-    },
-    {
-      "id": 2887,
-      "apelido": "ssss",
-      "local": "sss",
-      "marca": "ssss",
-      "modelo": "sss",
+      "id": 919,
+      "apelido": "asfd",
+      "local": "asdf",
+      "marca": "asdf",
+      "modelo": "asdf",
       "ativo": true
     }
   ],

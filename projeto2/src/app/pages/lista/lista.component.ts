@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IDatabase } from 'src/app/interfaces/database';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -13,7 +14,7 @@ export class ListaComponent implements OnInit {
   listaVazia: boolean = false
   headers:string[] = ['Id', 'Apelido', 'Local', 'Marca', 'Modelo']
     
-  constructor(private databaseService:DatabaseService) { }
+  constructor(private databaseService:DatabaseService, private route:Router) { }
 
   ngOnInit(): void {
     
@@ -25,11 +26,7 @@ export class ListaComponent implements OnInit {
     this.databaseService.chamarUnidades().subscribe((resposta:IDatabase[])=>{
     this.unidades = resposta
     this.confereListaVazia(this.unidades)
-    console.log('resposta', resposta)
     })
-    
-  // serviçoesDashboard
-  
   }
 
   confereListaVazia(array:any){
@@ -42,4 +39,20 @@ export class ListaComponent implements OnInit {
       this.listaVazia = true
     }
   }
+
+  editarItem(itemId:number){
+    let unidade:any = this.databaseService.chamarUnidade(itemId.toString()).subscribe((resultado)=>console.log('resultado', resultado))
+    console.log("Editar id", itemId)
+    console.log("unidade", unidade)
+    this.route.navigateByUrl('/edicao')
+    
+
+  }
+
+  removerItem(itemId:number){
+    console.log("Remover id", itemId)
+    this.databaseService.deletarUnidade(itemId.toString()).subscribe((resultado)=>console.log(resultado))
+    this.preencheLista()
+  }
+
 }

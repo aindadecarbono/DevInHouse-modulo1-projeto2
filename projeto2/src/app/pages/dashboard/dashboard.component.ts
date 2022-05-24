@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IDashboard } from 'src/app/interfaces/dashboard';
 import { DatabaseService } from 'src/app/services/database.service';
 
 
@@ -10,23 +9,55 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class DashboardComponent implements OnInit {
   
-  dashboard: IDashboard[] = []
-   
+
   cards: any[] = [
-  {nome: "Total unidades", valor: "lengthArray"},
-  {nome: 'Unidades Ativas', valor: "se true, ativo++"}, 
-  {nome: 'Unidades Inativas', valor: "se false, inativo++"}, 
-  {nome: 'Média de energia', valor: "buscar no outro service"}
+  {nome: "Total unidades", valor: 0},
+  {nome: 'Unidades Ativas', valor: 0}, 
+  {nome: 'Unidades Inativas', valor: 0}, 
+  {nome: 'Média de energia', valor: this.funcaoMediaEnergia().a}
 ]
 
-  constructor(private databaseService:DatabaseService) { }
+  constructor(private databaseService:DatabaseService) { 
+    
+  }
+
 
   ngOnInit(): void {
+
+    
     console.log("dashboard")
+    
+    this.montarDashboard()
+
+    
   }
 
-  montarDashboard(){
-    this.databaseService.montarDashboard()
+  //teste
+  funcaoMediaEnergia(){
+    console.log('aaa')
+    return {a: 'a', b: 'b'}
   }
 
-}
+  montarDashboard():any{
+
+        this.databaseService.chamarUnidades().subscribe((arrayDatabase:any)=>{
+        
+        // Somar total unidades
+        this.cards[0].valor = arrayDatabase.length
+
+        // Somar unidades ativas
+        this.cards[1].valor = arrayDatabase.filter((el: any)=> el.ativo == true).length
+        
+
+        // Somar unidades inativas
+        this.cards[2].valor = arrayDatabase.filter((el: any)=> el.ativo == false).length
+        
+        // Somar média de energia
+        // :(
+      
+    })
+
+    }
+
+  }
+

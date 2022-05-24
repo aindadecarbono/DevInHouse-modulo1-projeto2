@@ -18,23 +18,25 @@ export class DatabaseService {
   }
 
   postarNovaUnidade(unidade:IDatabase){
-    console.log("unidade", unidade)
+    console.log("postando unidade", unidade)
     return this.http.post<IDatabase>(this.urlBase, unidade)
   
   }
 
+  deletarUnidade(unidade:string){
+    console.log("deletando unidade", unidade)
+    return this.http.delete<string>(`${this.urlBase}/${unidade}`)
+  }
 
-  // fazer com observable
-  // montarDashboard():Observable<IDashboard[]>{
-  //   let unidades = this.chamarUnidades()
-  //   unidades.forEach((element)=>console.log(element))
-    
-  // }
+  chamarUnidade(unidade:string):Observable<IDatabase[]>{
+    return this.http.get<IDatabase[]>(`${this.urlBase}/${unidade}`);
+  }
+
 
   montarDashboard():IDashboard{
     let observable = this.chamarUnidades()
-          //extrair dados observable -> formar array dashboard
-    console.log(observable)
+          
+    console.log('observable', observable)
 
 
     let dashboard:IDashboard = {
@@ -44,10 +46,10 @@ export class DatabaseService {
       mediaDeEnergia: 0
     }
 
+   
+
     return dashboard;
 
-    //receber esse array numa variavel tipo IDashboard?
-    // let dashboard:IDashboard = 
     
   }
 }
