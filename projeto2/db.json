@@ -1,11 +1,19 @@
 {
   "unidades": [
     {
-      "id": 919,
-      "apelido": "asfd",
-      "local": "asdf",
-      "marca": "asdf",
-      "modelo": "asdf",
+      "id": 9326,
+      "apelido": "add",
+      "local": "fff",
+      "marca": "novaMarca",
+      "modelo": "novoModelo",
+      "ativo": true
+    },
+    {
+      "id": 7287,
+      "apelido": "aa",
+      "local": "kkkkk",
+      "marca": "eeee",
+      "modelo": "rrrrrr",
       "ativo": true
     }
   ],

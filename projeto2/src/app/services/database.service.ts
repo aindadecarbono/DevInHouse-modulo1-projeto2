@@ -11,6 +11,8 @@ export class DatabaseService {
 
   urlBase = 'http://localhost:3000/unidades'
 
+  unidade = ''
+
   constructor(private http: HttpClient) { }
 
   chamarUnidades():Observable<IDatabase[]>{
@@ -25,11 +27,21 @@ export class DatabaseService {
 
   deletarUnidade(unidade:string){
     console.log("deletando unidade", unidade)
-    return this.http.delete<string>(`${this.urlBase}/${unidade}`)
+    return this.http.delete<string>(`${this.urlBase}/${unidade}`).subscribe()
   }
 
-  chamarUnidade(unidade:string):Observable<IDatabase[]>{
-    return this.http.get<IDatabase[]>(`${this.urlBase}/${unidade}`);
+  editarUnidade(unidade:IDatabase){
+    console.log("editando unidade", unidade)
+    console.log(`${this.urlBase}/${unidade.id}`, unidade)
+    return this.http.put<IDatabase>(`${this.urlBase}/${unidade.id}`, unidade).subscribe()
+  }
+
+  receberUnidade(item:string){
+    this.unidade = item
+  }
+
+  chamarUnidade(unidade:string):Observable<IDatabase>{
+    return this.http.get<IDatabase>(`${this.urlBase}/${unidade}`);
   }
 
 

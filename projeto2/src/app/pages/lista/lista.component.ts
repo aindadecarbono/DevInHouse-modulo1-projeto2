@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { IDatabase } from 'src/app/interfaces/database';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -41,17 +42,14 @@ export class ListaComponent implements OnInit {
   }
 
   editarItem(itemId:number){
-    let unidade:any = this.databaseService.chamarUnidade(itemId.toString()).subscribe((resultado)=>console.log('resultado', resultado))
-    console.log("Editar id", itemId)
-    console.log("unidade", unidade)
+    this.databaseService.receberUnidade(itemId.toString())
     this.route.navigateByUrl('/edicao')
     
-
   }
 
   removerItem(itemId:number){
     console.log("Remover id", itemId)
-    this.databaseService.deletarUnidade(itemId.toString()).subscribe((resultado)=>console.log(resultado))
+    this.databaseService.deletarUnidade(itemId.toString())
     this.preencheLista()
   }
 
