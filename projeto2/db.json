@@ -1,27 +1,48 @@
 {
   "unidades": [
     {
-      "id": 9326,
-      "apelido": "add",
-      "local": "fff",
-      "marca": "novaMarca",
-      "modelo": "novoModelo",
+      "id": 5664,
+      "apelido": "assdd",
+      "local": "qwert",
+      "marca": "zzzz",
+      "modelo": "vvv",
       "ativo": true
     },
     {
-      "id": 7287,
-      "apelido": "aa",
-      "local": "kkkkk",
-      "marca": "eeee",
-      "modelo": "rrrrrr",
+      "id": 9296,
+      "apelido": "aaff",
+      "local": "fde",
+      "marca": "erq",
+      "modelo": "qer",
+      "ativo": true
+    },
+    {
+      "id": 2468,
+      "apelido": "novoApe",
+      "local": "novoLoc",
+      "marca": "novaMar",
+      "modelo": "novoMod",
       "ativo": true
     }
   ],
   "energia": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 8895,
+      "apelido": "",
+      "data": "2022-01",
+      "totalKw": 333
+    },
+    {
+      "id": 3241,
+      "apelido": "aaff",
+      "data": "2022-04",
+      "totalKw": 12
+    },
+    {
+      "id": 783,
+      "apelido": "novoApe",
+      "data": "2022-01",
+      "totalKw": 445
     }
   ]
 }

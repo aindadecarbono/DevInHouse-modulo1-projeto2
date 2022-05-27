@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IDashboard } from '../interfaces/dashboard';
 import { IDatabase } from '../interfaces/database';
+import { IGeracao } from '../interfaces/geracao';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ import { IDatabase } from '../interfaces/database';
 export class DatabaseService {
 
   urlBase = 'http://localhost:3000/unidades'
+
+  urlGeracao = 'http://localhost:3000/energia'
 
   unidade = ''
 
@@ -44,6 +47,16 @@ export class DatabaseService {
     return this.http.get<IDatabase>(`${this.urlBase}/${unidade}`);
   }
 
+
+  cadastrarEnergia(unidade:IGeracao){
+    console.log("cadastrando energia", unidade)
+    console.log("urlGeracao", this.urlGeracao)
+    return this.http.post<IGeracao>(this.urlGeracao, unidade)
+  }
+
+  chamarEnergia():Observable<IGeracao[]>{
+    return this.http.get<IGeracao[]>(this.urlGeracao)
+  }
 
   montarDashboard():IDashboard{
     let observable = this.chamarUnidades()

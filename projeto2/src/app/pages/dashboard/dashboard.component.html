@@ -16,10 +16,28 @@
           #{{item}}
         >
           <div class="card-body">
-            <h5 class="card-title">{{ item.nome }}</h5>
-            <p class="card-text">{{ item.valor }}</p>
+            <h6 class="card-title">{{ item.nome }}</h6>
+            <h6 class="card-text">{{ item.valor }}</h6>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <table>
+          <tr>
+            <th *ngFor="let item of mes">{{ item }}</th>
+          </tr>
+
+          <tr>
+            <!-- refatorar -->
+            <!-- <td *ngFor="let item of totalKw">{{ item.jan }}</td> -->
+            <td>{{ totalKw[0].jan }}</td>
+            <td>{{ totalKw[1].fev }}</td>
+            <td>{{ totalKw[2].mar }}</td>
+            <td>{{ totalKw[3].abr }}</td>
+            <td>{{ totalKw[4].mai }}</td>
+            <td>{{ totalKw[5].jun }}</td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

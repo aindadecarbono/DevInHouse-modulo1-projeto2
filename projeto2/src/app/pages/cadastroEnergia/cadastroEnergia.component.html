@@ -5,8 +5,65 @@
     </div>
 
     <div class="col container mt-auto">
-      <header class="row mt-6">lançamento</header>
-      <p>formulário para cadastro de energia gerada</p>
+      <header class="row mt-6">Lançamento</header>
+
+      <form
+        class=""
+        autocomplete="off"
+        #cadastro="ngForm"
+        (ngSubmit)="cadastrarEnergia(); cadastro.reset()"
+        name="name"
+      >
+        <div class="form-group container-fluid">
+          <label class="mt-2" for="">Unidade geradora: </label>
+          <br />
+
+          <select required class="mt-2" [(ngModel)]="unidade" name="name">
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option *ngFor="let item of lista">
+              {{ item.apelido }}
+            </option>
+          </select>
+          <br />
+
+          <label class="mt-4" for="">Mês/Ano</label>
+          <br />
+          <input
+            required
+            min="2022-01"
+            max="2022-06"
+            class="mt-2"
+            type="month"
+            [(ngModel)]="mesAno"
+            name="name"
+          />
+          <br />
+
+          <label class="mt-4" for="">Total kw gerado</label>
+          <br />
+          <input
+            required
+            class="mt-2"
+            type="number"
+            placeholder="Digite um valor"
+            name="name"
+            id=""
+            [(ngModel)]="totalKw"
+          />
+
+          <br />
+          <button [disabled]="!cadastro.valid" class="mt-4" type="submit">
+            Cadastrar
+          </button>
+        </div>
+      </form>
+      <!-- <div [ngSwitch]="filme">
+      <div *ngSwitchCase="'Comédia'">{{ filmes.comedia }}</div>
+      <div *ngSwitchCase="'Terror'">{{ filmes.terror }}</div>
+      <div *ngSwitchCase="'Ação'">{{ filmes.acao }}</div>
+      <div *ngSwitchCase="'Drama'">{{ filmes.drama }}</div>
+      <div *ngSwitchDefault></div>
+    </div> -->
     </div>
   </div>
 </div>
