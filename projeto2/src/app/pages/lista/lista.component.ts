@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { IDatabase } from 'src/app/interfaces/database';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -31,7 +30,6 @@ export class ListaComponent implements OnInit {
   }
 
   confereListaVazia(array:any){
-    console.log('confereListaVazia')
     if (array.length!=0){ 
       console.log(this.unidades.length)
     this.listaVazia = false

@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projeto2';
-  //esconde nav e faz login
-  // login: boolean = true;
-
+  
   constructor() {}
 }

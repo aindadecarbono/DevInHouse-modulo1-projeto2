@@ -5,8 +5,7 @@
     </div>
 
     <div class="col container mt-auto">
-      <header class="row mt-6">Unidades</header>
-      <p>lista</p>
+      <header class="row mt-6">Lista de unidades</header>
 
       <div *ngIf="listaVazia; else lista">
         <p>Lista vazia</p>
@@ -23,13 +22,25 @@
             <td>{{ item.local }}</td>
             <td>{{ item.marca }}</td>
             <td>{{ item.modelo }}</td>
-            <td><button (click)="editarItem(item.id)">Editar</button></td>
-            <td><button (click)="removerItem(item.id)">Remover</button></td>
+            <td>
+              <button class="botaoEditar" (click)="editarItem(item.id)">
+                Editar
+              </button>
+            </td>
+            <td>
+              <button class="botaoRemover" (click)="removerItem(item.id)">
+                Remover
+              </button>
+            </td>
           </tr>
         </table>
       </ng-template>
 
-      <button routerLinkActive="active" routerLink="/cadastrounidade">
+      <button
+        class="mt-2"
+        routerLinkActive="active"
+        routerLink="/cadastrounidade"
+      >
         Nova unidade
       </button>
     </div>

@@ -41,9 +41,6 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    
-    console.log("dashboard")
     
     this.montarDashboard()
 
@@ -56,35 +53,20 @@ export class DashboardComponent implements OnInit {
 
         this.databaseService.chamarUnidades().subscribe((arrayDatabase:any)=>{
         
-        // Somar total unidades
         this.cards[0].valor = arrayDatabase.length
-
-        // Somar unidades ativas
         this.cards[1].valor = arrayDatabase.filter((el: any)=> el.ativo == true).length
-        
-
-        // Somar unidades inativas
         this.cards[2].valor = arrayDatabase.filter((el: any)=> el.ativo == false).length
-        
-        // Somar média de energia
-        console.log('cards 3 valor antes', this.cards[3].valor)
         this.databaseService.chamarEnergia().subscribe((sucesso)=>{
-          console.log('cards 3 valor dentro sucesso', this.cards[3].valor)
-          console.log('sucesso subscribe', sucesso)
           sucesso.forEach((elemento)=>{
-            console.log('cards 3 valor dentro forEach', this.cards[3].valor)
-            console.log('elemento.totalKw do foreach', elemento.totalKw)
-            console.log('typeof cards 80', typeof this.cards[3].valor)
             this.cards[3].valor = this.cards[3].valor + elemento.totalKw})  
+            this.cards[3].valor = Math.round(this.cards[3].valor/arrayDatabase.length)
         })
-      
-    })
+      })
 
     }
 
      chamarTotalKwMes(){
       this.databaseService.chamarEnergia().subscribe((arrayDatabase)=>{
-        console.log('chamarTotalKwMes sucesso', arrayDatabase)
         arrayDatabase.forEach(elemento => {
           switch (elemento.data) {
             case '2022-01':
@@ -98,7 +80,6 @@ export class DashboardComponent implements OnInit {
             case '2022-03':
             this.totalKw[2].mar = this.totalKw[2].mar + elemento.totalKw
             break;
-
 
             case '2022-04':
             this.totalKw[3].abr = this.totalKw[3].abr + elemento.totalKw
